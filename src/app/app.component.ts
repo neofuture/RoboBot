@@ -103,11 +103,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.answering = false;
       this.conversationLog.push({
-        text: `Hello and welcome<br><br>Please ask me some questions,
+        text: `<b>Hello and Welcome</b><br><br>Please ask me some questions,
               you can ask my name, what the time is, the date, or ask me to do some simple
-              calculations<br><br>Some examples<br><ul>${exampleQuestions}</ul>
+              calculations.<br><br>Some examples<br><ul>${exampleQuestions}</ul>
               I also use fuzzy logic, so you can ask me questions in different ways,
-              I can also attept to for the question if you ask me the answer`,
+              I can also attept to find the question if you ask me the answer`,
         type: 'bot',
         time: new Date().getTime().toString()
       });
