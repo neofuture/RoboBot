@@ -1,5 +1,5 @@
 export interface ConversationModel {
-  text: string;
+  text: string | null
   type: string;
   time: string
 }

@@ -57,7 +57,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       const [text1, text2] = [searcherAnswer[0].obj.answer, searcherAnswer[1]?.obj.answer];
 
       let text = text1
-      if (text2 && text1 !== text2 && searcherAnswer[1].score < -50) {
+      if (text2 && text1 !== text2 && searcherAnswer[1].score > -0.3) {
         text += `, or it may be ${text2} as well.`;
       }
 

@@ -37,7 +37,7 @@ header img {
 .question--container {
   height: 60px;
   padding: 4px 12px 4px 12px;
-  background: linear-gradient(180deg, #282f4c, #424962);
+  background: linear-gradient(235deg, #282f4c, #424962);
   display: flex;
   justify-content: center;
   align-items: center;
