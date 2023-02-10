@@ -11,9 +11,20 @@
           {{ log.type == 'user' ? 'You' : name }}: {{ log.time | date: 'shortTime' }}
         </div>
       </div>
-      <div *ngIf="answering" class="conversation--container__is-typing">
-        {{ name }} is typing...
+
+      <div *ngIf="answering" class="conversation--container__relay bot">
+        <div class="question--container__log">
+          <div class="typing">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+        <div class="conversation--container__is-typing">
+          {{ name }} is typing...
+        </div>
       </div>
+
     </div>
     <div class="question--container">
       <input type="text" #inputRef [(ngModel)]="question" (keydown.enter)="sendQuestion()">

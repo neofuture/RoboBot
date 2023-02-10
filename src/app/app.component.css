@@ -1,16 +1,17 @@
 .container {
   width: calc(100 - 10px);
   height: calc(100% - 40px);
-  padding:20px;
+  padding: 20px;
   background: linear-gradient(180deg, #191f34, #151926);
 }
+
 .app--container {
   height: 100%;
   overflow: hidden;
-  max-width:800px;
-  margin:0 auto;
+  max-width: 800px;
+  margin: 0 auto;
   border: 1px solid #1a2036;
-  border-radius:8px;
+  border-radius: 8px;
 }
 
 header {
@@ -29,8 +30,8 @@ header img {
   height: calc(100% - 148px);
   overflow-y: scroll;
   position: relative;
-  padding:18px 18px 0 18px;
-  background-color:white;
+  padding: 18px 18px 0 18px;
+  background-color: white;
 }
 
 .question--container {
@@ -82,8 +83,8 @@ header img {
 }
 
 .conversation--container__is-typing {
-  font-size:14px;
-  padding:0 0 0 8px;
+  font-size: 14px;
+  margin-top: 9px;
 }
 
 .bot > div:first-child {
@@ -104,10 +105,58 @@ header img {
 
 .user > div:last-child, .bot > div:last-child {
   display: block;
-  font-size:12px;
-  margin-top:8px;
+  font-size: 12px;
+  margin-top: 8px;
 }
 
 input[type="text"]:focus-visible {
   outline: 3px solid #8c9ac9;
+}
+
+.typing {
+  align-items: center;
+  display: flex;
+  height: 17px;
+}
+
+.typing .dot {
+  animation: mercuryTypingAnimation 1.8s infinite ease-in-out;
+  background-color: #6CAD96;
+  border-radius: 50%;
+  height: 7px;
+  margin-right: 4px;
+  vertical-align: middle;
+  width: 7px;
+  display: inline-block;
+}
+
+.typing .dot:nth-child(1) {
+  animation-delay: 200ms;
+}
+
+.typing .dot:nth-child(2) {
+  animation-delay: 300ms;
+}
+
+.typing .dot:nth-child(3) {
+  animation-delay: 400ms;
+}
+
+.typing .dot:last-child {
+  margin-right: 0;
+}
+
+@keyframes mercuryTypingAnimation {
+  0% {
+    transform: translateY(0px);
+    background-color: #6f807b;
+  }
+  28% {
+    transform: translateY(-7px);
+    background-color: #5e6b65;
+  }
+  44% {
+    transform: translateY(0px);
+    background-color: #025d2f;
+  }
 }
