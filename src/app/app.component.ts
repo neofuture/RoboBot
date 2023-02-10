@@ -22,7 +22,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   name = 'RoboBob';
 
   sendQuestion() {
-    if(this.question === '') {
+    if (this.question === '') {
       return;
     }
     const time = new Date().getTime().toString();
@@ -40,6 +40,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     this.question = '';
     this.input?.nativeElement.focus();
+    localStorage.setItem('conversationLog', JSON.stringify(this.conversationLog));
   }
 
   answerQuestion(question: any) {
@@ -81,7 +82,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
 
     this.conversationLog.push(answer);
-
+    localStorage.setItem('conversationLog', JSON.stringify(this.conversationLog));
     setTimeout(() => {
       this.scrollToBottom();
     }, 100);
@@ -98,12 +99,19 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.answering = true;
-    const exampleQuestions = this.shuffleArray().slice(0, 3)
-      .map(item => `<li>${item.question}</li>`)
-      .join('');
+    this.conversationLog = JSON.parse(localStorage.getItem('conversationLog') || '[]');
 
+    if (this.conversationLog.length === 0) {
+      this.bootstrapConversation();
+    }
+  }
+
+  bootstrapConversation() {
+    this.answering = true;
     setTimeout(() => {
+      const exampleQuestions = this.shuffleArray().slice(0, 3)
+        .map(item => `<li>${item.question}</li>`)
+        .join('');
       this.answering = false;
       this.conversationLog.push({
         text: `<b>Hello and Welcome</b><br><br>Please ask me some questions,
@@ -123,5 +131,11 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   scrollToBottom(): void {
     this.conversationContainer.nativeElement.scrollTop = this.conversationContainer?.nativeElement.scrollHeight;
+  }
+
+  resetConversation() {
+    localStorage.removeItem('conversationLog');
+    this.conversationLog = [];
+    this.bootstrapConversation();
   }
 }

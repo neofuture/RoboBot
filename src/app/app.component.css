@@ -19,6 +19,19 @@ header {
   background: linear-gradient(90deg, #282f4c, #424962);
   padding: 12px;
   color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header button {
+  background-color: #282f4c;
+  border: 1px solid #282f4c;
+  color:#f3f3f3;
+}
+
+header button:hover {
+  background-color: #30395b;
 }
 
 header img {
@@ -54,7 +67,7 @@ header img {
   font-weight: 300;
 }
 
-.question--container > button {
+button {
   flex-grow: 1;
   height: 34px;
   border: 1px solid #00ff00;
