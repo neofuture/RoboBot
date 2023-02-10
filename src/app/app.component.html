@@ -27,8 +27,14 @@
 
     </div>
     <div class="question--container">
-      <input type="text" #inputRef [(ngModel)]="question" (keydown.enter)="sendQuestion()">
-      <button (click)="sendQuestion()">Send</button>
+      <input
+        type="text"
+        #inputRef
+        [(ngModel)]="question"
+        (keydown.enter)="sendQuestion()" placeholder="Ask a question..."
+        autocomplete="false"
+      >
+      <button (click)="sendQuestion();inputRef.focus()">Send</button>
     </div>
   </div>
 </div>
