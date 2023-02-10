@@ -8,11 +8,11 @@
         <div class="question--container__log" [innerHTML]="log.text">
         </div>
         <div class="label">
-          {{ log.type == 'user' ? 'You' : 'RoboBot' }}: {{ log.time | date: 'shortTime' }}
+          {{ log.type == 'user' ? 'You' : name }}: {{ log.time | date: 'shortTime' }}
         </div>
       </div>
       <div *ngIf="answering" class="conversation--container__is-typing">
-        RoboBot is typing...
+        {{ name }} is typing...
       </div>
     </div>
     <div class="question--container">

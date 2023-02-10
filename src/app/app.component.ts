@@ -10,7 +10,7 @@ import * as math from 'mathjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  title = 'RoboBot';
+  title = 'RoboBob';
   question = '';
   conversationLog: ConversationModel[] = [];
   @ViewChild('inputRef', {static: false}) input!: ElementRef;
@@ -19,6 +19,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   questionsList = questionsList;
   answering: boolean = false;
   randomQuestions = [];
+  name = 'RoboBob';
 
   sendQuestion() {
     const time = new Date().getTime().toString();
@@ -50,10 +51,11 @@ export class AppComponent implements OnInit, AfterViewInit {
       let text = searcherAnswer[0].obj.answer;
       if (searcherAnswer[1] !== undefined) {
         if(
-          searcherAnswer[0].obj.answer !== searcherAnswer[1].obj.answer &&
-          searcherAnswer[1].score < -0.5
+          (searcherAnswer[0].obj.answer !== searcherAnswer[1].obj.answer) &&
+          searcherAnswer[1].score > -0.8
         ) {
-          text += ', or it may be ' + searcherAnswer[1].obj.answer;
+          text += ', or it may be ' +
+            searcherAnswer[1].obj.answer + searcherAnswer[1].score;
         }
       }
       text = text.replace('{{TIME}}', new Date().toLocaleTimeString());
@@ -61,7 +63,11 @@ export class AppComponent implements OnInit, AfterViewInit {
 
       answer = {text, type: 'bot', time};
     } else if (searcherQuestion[0] !== undefined) {
-      let text = 'I have found this question which might serve as an answer. ' + searcherQuestion[0].obj.question;
+      let text = 'I have found this question which might serve as an answer. ' +
+        searcherQuestion[0].obj.question +
+        ' The answer being ' +
+        searcherQuestion[0].obj.answer +
+        '.';
 
       answer = {text, type: 'bot', time};
     } else {

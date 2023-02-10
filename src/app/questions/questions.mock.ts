@@ -1,7 +1,7 @@
 export const questionsList = [
   {
     question: 'What is your name?',
-    answer: 'My name is RoboBot'
+    answer: 'My name is RoboBob'
   },
   {
     question: 'What time is it?',
