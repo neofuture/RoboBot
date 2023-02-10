@@ -110,7 +110,7 @@ export class AppComponent implements OnInit, AfterViewInit {
               you can ask my name, what the time is, the date, or ask me to do some simple
               calculations.<br><br>Some examples<br><ul>${exampleQuestions}</ul>
               I also use fuzzy logic, so you can ask me questions in different ways,
-              I can also attept to find the question if you ask me the answer`,
+              I can also attept to find the question if you ask me the answer.`,
         type: 'bot',
         time: new Date().getTime().toString()
       });
