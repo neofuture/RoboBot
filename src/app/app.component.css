@@ -57,17 +57,18 @@ header img {
 .question--container > button {
   flex-grow: 1;
   height: 34px;
-  border: 1px solid #3366cc;
+  border: 1px solid #00ff00;
   border-radius: 4px;
-  background-color: #3366cc;
-  color: white;
+  background-color: #adfb9c;
+  color: #444444;
   font-size: 18px;
   font-weight: 300;
   margin-left: 4px;
+  cursor: pointer;
 }
 
 .question--container > button:hover {
-  background-color: #5f8dea;
+  background-color: #5bcc42;
 }
 
 .conversation--container__relay.bot {
