@@ -113,13 +113,13 @@ input[type="text"]:focus-visible {
   outline: 3px solid #8c9ac9;
 }
 
-.typing {
+.question--container__log--typing {
   align-items: center;
   display: flex;
   height: 17px;
 }
 
-.typing .dot {
+.question--container__log--typing .question--container__log--dot {
   animation: mercuryTypingAnimation 1.8s infinite ease-in-out;
   background-color: #6CAD96;
   border-radius: 50%;
@@ -130,19 +130,19 @@ input[type="text"]:focus-visible {
   display: inline-block;
 }
 
-.typing .dot:nth-child(1) {
+.question--container__log--typing .question--container__log--dot:nth-child(1) {
   animation-delay: 200ms;
 }
 
-.typing .dot:nth-child(2) {
+.question--container__log--typing .question--container__log--dot:nth-child(2) {
   animation-delay: 300ms;
 }
 
-.typing .dot:nth-child(3) {
+.question--container__log--typing .question--container__log--dot:nth-child(3) {
   animation-delay: 400ms;
 }
 
-.typing .dot:last-child {
+.question--container__log--typing .question--container__log--dot:last-child {
   margin-right: 0;
 }
 
