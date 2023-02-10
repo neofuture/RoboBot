@@ -15,3 +15,8 @@ ul {
   list-style-type: circle;
 
 }
+
+* {
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}

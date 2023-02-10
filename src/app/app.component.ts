@@ -22,6 +22,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   name = 'RoboBob';
 
   sendQuestion() {
+    if(this.question === '') {
+      return;
+    }
     const time = new Date().getTime().toString();
     this.conversationLog.push({text: this.question, type: 'user', time});
     this.answering = true;
@@ -53,16 +56,16 @@ export class AppComponent implements OnInit, AfterViewInit {
     if (searcherAnswer[0] !== undefined) {
       const [text1, text2] = [searcherAnswer[0].obj.answer, searcherAnswer[1]?.obj.answer];
 
-      let text = text1;
-      if (text2 && text1 !== text2 && searcherAnswer[1].score > -0.8) {
-        text += `, or it may be ${text2}`;
+      let text = text1
+      if (text2 && text1 !== text2 && searcherAnswer[1].score < -50) {
+        text += `, or it may be ${text2} as well.`;
       }
 
       text = text.replace('{{TIME}}', new Date().toLocaleTimeString());
       text = text.replace('{{DATE}}', new Date().toLocaleDateString());
 
       answer = {text, type: 'bot', time};
-    } else if (searcherQuestion[0] !== undefined) {
+    } else if (searcherQuestion[0] !== undefined && searcherQuestion[0].score > -0.3) {
       const [q, a] = [searcherQuestion[0].obj.question, searcherQuestion[0].obj.answer];
       const text = `I have found this question which might serve as an answer. ${q} The answer being, ${a}.`;
 

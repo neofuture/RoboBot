@@ -1,6 +1,6 @@
 .container {
-  width: calc(100 - 10px);
-  height: calc(100% - 40px);
+  width: 100%;
+  height: 100%;
   padding: 20px;
   background: linear-gradient(180deg, #191f34, #151926);
 }
@@ -15,7 +15,7 @@
 }
 
 header {
-  height: 40px;
+  height: 60px;
   background: linear-gradient(90deg, #282f4c, #424962);
   padding: 12px;
   color: white;
@@ -27,7 +27,7 @@ header img {
 
 
 .conversation--container {
-  height: calc(100% - 148px);
+  height: calc(100% - 118px);
   overflow-y: scroll;
   position: relative;
   padding: 18px 18px 0 18px;
@@ -64,6 +64,10 @@ header img {
   font-size: 18px;
   font-weight: 300;
   margin-left: 4px;
+}
+
+.question--container > button:hover {
+  background-color: #5f8dea;
 }
 
 .conversation--container__relay.bot {
@@ -110,7 +114,8 @@ header img {
 }
 
 input[type="text"]:focus-visible {
-  outline: 3px solid #8c9ac9;
+  box-shadow: 0px 0px 3px 3px rgba(96, 192, 24);
+  outline: none;
 }
 
 .question--container__log--typing {
