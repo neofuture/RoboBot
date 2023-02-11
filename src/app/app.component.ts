@@ -100,7 +100,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.conversationLog = JSON.parse(localStorage.getItem('conversationLog') || '[]');
-
     if (this.conversationLog.length === 0) {
       this.bootstrapConversation();
     }
@@ -127,6 +126,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.input?.nativeElement.focus();
+    this.scrollToBottom()
   }
 
   scrollToBottom(): void {
