@@ -64,7 +64,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       text = text.replace('{{TIME}}', new Date().toLocaleTimeString());
       text = text.replace('{{DATE}}', new Date().toLocaleDateString());
 
-      answer = {text, type: 'bot', time, link: false};
+      answer = {text, type: 'bot', time, link: true, question: searcherAnswer[0].obj.answer};
     } else if (searcherQuestion[0] !== undefined && searcherQuestion[0].score > -0.3) {
       const [q, a] = [searcherQuestion[0].obj.question, searcherQuestion[0].obj.answer];
       const text = `I have found this question which might serve as an answer. ${q} The answer being, ${a}.`;
