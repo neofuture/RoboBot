@@ -4,6 +4,9 @@
       <div>
         <img src="assets/images/logo.png" alt="RoboBot" title="RoboBot">
       </div>
+      <div>
+        <button (click)="resetConversation()" class="question--container__reset">Reset</button>
+      </div>
     </header>
     <div class="conversation--container" #conversationContainer>
       <div *ngFor="let log of conversationLog" class="conversation--container__relay" [class]="log.type">
@@ -11,7 +14,7 @@
         </div>
         <div class="label">
           {{ log.type == 'user' ? 'You' : name }}: {{ log.time | date: 'shortTime' }}
-          <span class="pointer" *ngIf="log.link" (click)="externalQuery(log.question)">[Ask Question]</span>
+          <span class="pointer" *ngIf="log.link" (click)="externalQuery(log.question)">[Flip Answer/Que]</span>
         </div>
       </div>
 
@@ -38,7 +41,6 @@
         autocomplete="false"
       >
       <button (click)="sendQuestion();inputRef.focus()">Send</button>
-      <button (click)="resetConversation()" class="question--container__reset">Reset</button>
     </div>
   </div>
 </div>
