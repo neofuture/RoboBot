@@ -24,16 +24,6 @@ header {
   align-items: center;
 }
 
-header button {
-  background-color: #282f4c;
-  border: 1px solid #282f4c;
-  color:#f3f3f3;
-}
-
-header button:hover {
-  background-color: #30395b;
-}
-
 header img {
   height: 40px;
 }
@@ -178,4 +168,14 @@ input[type="text"]:focus-visible {
     transform: translateY(0px);
     background-color: #025d2f;
   }
+}
+
+.question--container__reset {
+  background-color: #49568a;
+  border: 1px solid #5465a8;
+  color:#f3f3f3;
+}
+
+.question--container__reset:hover {
+  background-color: #334793 !important;
 }
