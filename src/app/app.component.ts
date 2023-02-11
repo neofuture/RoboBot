@@ -58,7 +58,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
       let text = text1
       if (text2 && text1 !== text2 && searcherAnswer[1].score > -0.3) {
-        text += `, or it may be ${text2} as well.`;
+        text += `, or maybe ${text2} as well.`;
       }
 
       text = text.replace('{{TIME}}', new Date().toLocaleTimeString());
