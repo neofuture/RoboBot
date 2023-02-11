@@ -8,7 +8,7 @@
 .app--container {
   height: 100%;
   overflow: hidden;
-  max-width: 400px;
+  max-width: 600px;
   margin: 0 auto;
   border: 1px solid #1a2036;
   border-radius: 8px;

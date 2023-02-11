@@ -15,3 +15,9 @@ A realistic "Bot is typing" message is displayed while the bot is processing the
 The bot is able to look at answers and propose a new question based on the answer. This is done by using the fuzzy logic to determine the most likely answer and then using the answer to propose a new question.
 
 This bot can also detect that question is not in the predetermined set of questions and will respond with a message to that effect, and attempt to process the quesiton as a calculation.
+
+I found the next instruction a little confusing.
+
+> "For this exercise, you can assume that the RoboBob app will run continuously after the session starts. Therefore, there is no need to persist any data beyond the question list."
+
+I took this as the bot needed to retain the questions that were asked, but i was unsure if the bot needed to retain the answers to the questions. I decided to implement the bot to retain the answers to the questions as well. If this is an incorrect assumption, then the bot can be easily modified to only retain the questions.
