@@ -18,7 +18,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   questionsList = questionsList;
   answering: boolean = false;
-  randomQuestions = [];
   name = 'RoboBob';
 
   sendQuestion() {
@@ -26,7 +25,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       return;
     }
     const time = new Date().getTime().toString();
-    this.conversationLog.push({text: this.question, type: 'user', time});
+    this.conversationLog.push({text: this.question, type: 'user', time, link: false});
     this.answering = true;
 
     setTimeout(() => {
@@ -65,19 +64,35 @@ export class AppComponent implements OnInit, AfterViewInit {
       text = text.replace('{{TIME}}', new Date().toLocaleTimeString());
       text = text.replace('{{DATE}}', new Date().toLocaleDateString());
 
-      answer = {text, type: 'bot', time};
+      answer = {text, type: 'bot', time, link: false};
     } else if (searcherQuestion[0] !== undefined && searcherQuestion[0].score > -0.3) {
       const [q, a] = [searcherQuestion[0].obj.question, searcherQuestion[0].obj.answer];
       const text = `I have found this question which might serve as an answer. ${q} The answer being, ${a}.`;
 
-      answer = {text, type: 'bot', time};
+      answer = {
+        text,
+        type: 'bot',
+        time,
+        link: true,
+        question: q
+      };
     } else {
       const calculation = question.replace(/[^0-9\+\-\*\/\.]/g, '');
       const calcResult = math.evaluate(calculation);
       if (calcResult === undefined) {
-        answer = {text: 'Could you please rephrase your question', type: 'bot', time};
+        answer = {
+          text: 'Could you please rephrase your question',
+          type: 'bot',
+          time,
+          link: false
+        };
       } else {
-        answer = {text: `I have calculated that to be ${calcResult}`, type: 'bot', time};
+        answer = {
+          text: `I have calculated that to be ${calcResult}`,
+          type: 'bot',
+          time,
+          link: false
+        };
       }
     }
 
@@ -119,7 +134,8 @@ export class AppComponent implements OnInit, AfterViewInit {
               I also use fuzzy logic, so you can ask me questions in different ways,
               I can also attept to find the question if you ask me the answer.`,
         type: 'bot',
-        time: new Date().getTime().toString()
+        time: new Date().getTime().toString(),
+        link: false
       });
     }, 2500);
   }
@@ -137,5 +153,13 @@ export class AppComponent implements OnInit, AfterViewInit {
     localStorage.removeItem('conversationLog');
     this.conversationLog = [];
     this.bootstrapConversation();
+  }
+
+  externalQuery(text: string | null | undefined) {
+    if(text === null || text === undefined) {
+      return;
+    }
+    this.question = text;
+    this.sendQuestion();
   }
 }

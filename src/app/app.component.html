@@ -11,6 +11,7 @@
         </div>
         <div class="label">
           {{ log.type == 'user' ? 'You' : name }}: {{ log.time | date: 'shortTime' }}
+          <span class="pointer" *ngIf="log.link" (click)="externalQuery(log.question)">[Ask Question]</span>
         </div>
       </div>
 

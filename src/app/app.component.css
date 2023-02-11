@@ -179,3 +179,7 @@ input[type="text"]:focus-visible {
 .question--container__reset:hover {
   background-color: #334793 !important;
 }
+
+.pointer {
+  cursor: pointer;
+}
